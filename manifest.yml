@@ -1,0 +1,21 @@
+lzc-sdk-version: "0.1"
+name: 生财有迹
+package: cloud.lazycat.app.wealth-tracker
+version: 1.3.5
+description: 一款专注于个人资产分析的应用程序
+homepage: https://github.com/nicejade/wealth-tracker
+author: nicejade
+application:
+  subdomain: wealth-tracker
+  background_task: true
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  routes:
+    - /=http://wealth-tracker.cloud.lazycat.app.wealth-tracker.lzcapp:8888/
+services:
+  wealth-tracker:
+    image: registry.lazycat.cloud/czyt/nicejade/wealth-tracker:a20eaf3866800f2c
+    binds:
+      - /lzcapp/var/data:/app/data

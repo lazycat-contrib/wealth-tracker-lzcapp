@@ -1,0 +1,32 @@
+{
+  "name": "生财有迹",
+  "package": "cloud.lazycat.app.wealth-tracker",
+  "description": "一款专注于个人资产分析的应用程序",
+  "homepage": "https://github.com/nicejade/wealth-tracker",
+  "author": "nicejade",
+  "app_features": [
+    "background_task"
+  ],
+  "subdomain": "wealth-tracker",
+  "version": "3.0.0",
+  "iconPath": "icon.png",
+  "composePath": "docker-compose.yml",
+  "unsupported_platforms": [],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "wealth-tracker_8888_8888": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    }
+  },
+  "image_nicejade_wealth-tracker_latest": {
+    "originalImage": "nicejade/wealth-tracker:latest",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/czyt/nicejade/wealth-tracker:a20eaf3866800f2c",
+    "timestamp": "2025-03-12T12:23:51.781Z"
+  },
+  "wealth-tracker_volume_/app/data_action": "emptyDir",
+  "wealth-tracker_volume_/app/data_location": "app_data"
+}
