@@ -1,0 +1,40 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/wealth-tracker.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: wealth-tracker
+
+build:
+  run_buildscript: false
+
+images:
+  # 上游使用标准 SemVer tag；过滤掉 latest/stable/unstable 别名
+  - id: wealth-tracker
+    target: service
+    service: wealth-tracker
+    source: nicejade/wealth-tracker
+    channel: stable
+    sort: semver
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: mirror
+
+stores:
+  official:
+    # Official store publication is intentionally disabled; publish only to Miaomiao Store.
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: 生财有迹
+    summary: 一款专注于个人资产分析的应用程序

@@ -1,0 +1,16 @@
+application:
+  subdomain: wealth-tracker
+  background_task: true
+  multi_instance: false
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://wealth-tracker:8888/
+
+services:
+  wealth-tracker:
+    # upstream: nicejade/wealth-tracker:5.0.0
+    image: docker.1ms.run/nicejade/wealth-tracker:5.0.0
+    binds:
+      - /lzcapp/var/data:/app/data
