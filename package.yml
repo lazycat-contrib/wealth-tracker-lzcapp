@@ -1,4 +1,5 @@
 package: community.lazycat.app.wealth-tracker
+license: MIT
 version: 5.0.0
 name: 生财有迹
 description: "一款专注于个人资产分析的应用程序"
